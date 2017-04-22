@@ -1,0 +1,24 @@
+{
+  "name": "atividade-2017-01",
+  "version": "1.0.0",
+  "description": "Trabalho rede neural para vinhos",
+  "main": "src/rede-neural/index.js",
+  "scripts": {
+    "start": "node src/rede-neural/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/luanmotta/InteligenciaArtificial.git"
+  },
+  "keywords": [
+    "rede",
+    "neural",
+    "vinhos"
+  ],
+  "author": "Ezequiel & Luan",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/luanmotta/InteligenciaArtificial/issues"
+  },
+  "homepage": "https://github.com/luanmotta/InteligenciaArtificial#readme"
+}

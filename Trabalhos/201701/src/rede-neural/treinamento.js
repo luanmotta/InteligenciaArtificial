@@ -1,7 +1,6 @@
 const MLP = require('./MLP.js');
-const config = require('./../config.json');
 
-module.exports = function treinamento(list) {
+module.exports = function treinamento(list, config) {
 	const winesToTraning = parseInt(list.length * 0.8);
 
 	const mlp = new MLP(config);

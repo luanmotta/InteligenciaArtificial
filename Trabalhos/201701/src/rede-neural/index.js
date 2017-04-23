@@ -2,6 +2,7 @@ const
     csv           = require('csvtojson'),
 	generalizacao = require('./generalizacao'),
 	treinamento   = require('./treinamento');
+    config        = require('./conf.json');
 
 let
     list = [],
@@ -34,7 +35,7 @@ class Main {
         .on('done', (error, data) => {
             if (error)
                 console.log(error)
-						fase(list);
+						fase(list, config);
         });
     }
 }

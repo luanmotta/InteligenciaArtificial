@@ -11,14 +11,14 @@ class Main {
     constructor() {
         console.log("node started");
 
-				if (process.argv[2] === 'treinamento') {
-					fase = treinamento;
-				}
-				else if (process.argv[2] === 'generalizacao') {
-					fase = generalizacao;
-				} else {
-					throw new Error('É preciso especificar a fase como "treinamento" ou "generalizacao"');
-				}
+		if (process.argv[2] === 'treinamento') {
+			fase = treinamento;
+		}
+		else if (process.argv[2] === 'generalizacao') {
+			fase = generalizacao;
+		} else {
+			throw new Error('É preciso especificar a fase como "treinamento" ou "generalizacao"');
+		}
 
 
         csv({
@@ -33,7 +33,7 @@ class Main {
             if (error)
                 console.log(error)
 						fase(list);
-        })
+        });
     }
 }
 

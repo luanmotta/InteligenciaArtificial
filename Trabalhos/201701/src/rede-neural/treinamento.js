@@ -1,5 +1,11 @@
+const MLP = require('./MLP.js');
+const config = require('./../config.json');
+
+
 module.exports = function treinamento(list) {
 	const winesToTraning = parseInt(list.length * 0.8);
+
+	const mlp = new MLP(config);
 
 	// Treinamento
 	let epocas = 0, i;

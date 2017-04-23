@@ -18,8 +18,9 @@ module.exports = function treinamento(list) {
 		console.log("Epoca: " + epocas);
 		for (i = 0; i < winesToTraning; i++) {
 
-			// propagacao
-			y = neuronio.calculaY(x1[i], x2[i]);
+		 mlp.propagacao(list[i]);
+
+			// y = neuronio.calculaY(x1[i], x2[i]);
 			
 			// calcula do erro
 			erro = d[i] - y;

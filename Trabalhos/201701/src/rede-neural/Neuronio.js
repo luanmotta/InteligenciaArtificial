@@ -2,9 +2,9 @@ class Neuronio {
 	// Neuronio para 2 entradas
 
 	constructor(w0, w1, w2) {
-		this.w0;
-		this.w1;
-		this.w2;
+		this.w0 = w0;
+		this.w1 = w1;
+		this.w2 = w2;
 	}
 
 	getW0() {
@@ -26,9 +26,7 @@ class Neuronio {
 	calculaY(x1, x2) { // aplica a funcao
 		const v = calculaV(x1, x2);
 
-		if (v >= 0)
-			return 1;
-		return 0;
+		return (+ v >= 0);
 	}
 
 	setW0(w0) {

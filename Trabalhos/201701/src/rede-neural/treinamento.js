@@ -23,7 +23,8 @@ module.exports = function treinamento(wines, config) {
 				'x2': wines[i]['volatile acidity']
 			});
 
-		 	erroGeral = mlp.propagacao(inputs);
+		 	mlp.propagacao(inputs);
+			mlp.retropropagacao(outputs);
 		}
 	}
 };

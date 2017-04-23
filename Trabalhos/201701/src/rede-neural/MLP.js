@@ -55,6 +55,10 @@ class MLP {
     });
   }
 
+  retropropagacao() {
+    
+  }
+
 //inputs [{x1:0.4, x2:0.3}, {x1:0.4, x2:0.3}]
 }
 

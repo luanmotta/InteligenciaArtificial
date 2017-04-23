@@ -6,7 +6,7 @@ function generateMLP(config) {
   for ( i = 0; i < config.layers.length - 1 ; i++ ) {
     mlp.push([]);
     for ( j = 0; j < config.layers[i] ; j++) {
-      mlp[i].push(new Neuronio(config.weight[j]));
+      mlp[i].push(new Neuronio(...config.weight[j]));
     }
   }
   return mlp;
@@ -36,7 +36,7 @@ class MLP {
   }
 
   propagacao(wine) {
-    this.mlp.mergeAll().map((neuronio) => {
+    this.mlp.map((neuronio) => {
       neuronio.w0 = this.setRandomWeight();
     });
   }

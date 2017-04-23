@@ -33,8 +33,8 @@ class Main {
         })
         .on('done', (error, data) => {
             if (error)
-                console.log(error)
-						fase(list);
+                console.log(error);
+			fase(list);
         });
     }
 }

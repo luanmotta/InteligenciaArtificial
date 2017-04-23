@@ -11,14 +11,14 @@ module.exports = function treinamento(list) {
 	let y, erro, erroGeral;
 
 	console.log("--- TREINAMENTO");
-	while (true) {
+	while (erroGeral !== 0) {
 		epocas++;
 		erroGeral = 0;
 
 		console.log("Epoca: " + epocas);
 		for (i = 0; i < winesToTraning; i++) {
 
-		 mlp.propagacao(list[i]);
+		 	mlp.propagacao(list[i]);
 
 			// y = neuronio.calculaY(x1[i], x2[i]);
 			
@@ -34,9 +34,5 @@ module.exports = function treinamento(list) {
 			console.log("Neuronio - pesos: " + neuronio);
 			erroGeral = erroGeral + abs(erro);
 		}
-		
-		// para quando para todas as entradas o erro for zero
-		if (erroGeral == 0)
-			break;
 	}
 }

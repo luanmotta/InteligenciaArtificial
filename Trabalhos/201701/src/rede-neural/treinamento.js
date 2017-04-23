@@ -3,7 +3,9 @@ const MLP = require('./MLP.js');
 module.exports = function treinamento(list, config) {
 	const winesToTraning = parseInt(list.length * 0.8);
 
-	const mlp = new MLP(config);
+	let Q = n => n * n * n;
+
+	const mlp = new MLP(config, Q);
 
 	// Treinamento
 	let epocas = 0, i;

@@ -19,14 +19,14 @@ class Neuronio {
 		return w2;
 	}
 
-	calculaV(x1, x2) {
+	calculaV({x1, x2}) {
 		return w0 + w1 * x1 + w2 * x2;
-	} // calcula o campo local induzido
+	}
 
-	calculaY(x1, x2) { // aplica a funcao
+	calculaY({x1, x2}, Q) {
 		const v = calculaV(x1, x2);
 
-		return (+ v >= 0);
+		return (Q(v));
 	}
 
 	setW0(w0) {

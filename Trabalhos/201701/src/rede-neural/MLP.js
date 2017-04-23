@@ -14,32 +14,33 @@ function generateMLP(config) {
 
 class MLP {
 
-	constructor(config) {
+	constructor(config, Q) {
     this.mlp = generateMLP(config);
     this.learningRate = config.learningRate; 
+    this.Q = Q;
+    this.vk = [];
+    this.yk = [];
   }
 
-	setRandomWeight() {
-    const weigth = Math.random() * (1 - 0) + 0;
+  propagacao(inputs) {
 
-    // se o peso for nulo, gera um novo peso
-    if (weigth === 0) {
-      return setWeight();
-    }
-    return weigth;
-  }
+    var self = this;
+    self.mlp.map((layer, layerIndex) => {
+      self.mlp.vk[layerIndex].push([]);
+      self.mlp.yk[layerIndex].push([]);
+      layer.map((neuronio, neuronioIndex) => {
+        if (layerIndex === 0) {
+          self.mlp.vk[layerIndex][neuronioIndex] = 
+            mlp[layerIndex][neuronioIndex].calculaV(input[neuronioIndex]);
+          self.mlp.yk[layerIndex][neuronioIndex] = 
+            mlp[layerIndex][neuronioIndex].calculaY(input[neuronioIndex], Q);
+        } else {
 
-  startWeights() {
-    this.mlp.mergeAll().map((neuronio) => {
-      neuronio.w0 = this.setRandomWeight();
+        }
+      });
     });
   }
 
-  propagacao(wine) {
-    this.mlp.map((neuronio) => {
-      neuronio.w0 = this.setRandomWeight();
-    });
-  }
-
+//inputs [{x1:0.4, x2:0.3}, {x1:0.4, x2:0.3}]
 
 }

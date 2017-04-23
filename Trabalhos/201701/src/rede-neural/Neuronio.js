@@ -8,23 +8,23 @@ class Neuronio {
 	}
 
 	getW0() {
-		return w0;
+		return this.w0;
 	}
 
 	getW1() {
-		return w1;
+		return this.w1;
 	}
 
 	getW2() {
-		return w2;
+		return this.w2;
 	}
 
 	calculaV({x1, x2}) {
-		return w0 + w1 * x1 + w2 * x2;
+		return this.w0 + this.w1 * this.x1 + this.w2 * this.x2;
 	}
 
 	calculaY({x1, x2}, Q) {
-		const v = calculaV(x1, x2);
+		const v = this.calculaV(x1, x2);
 
 		return (Q(v));
 	}
@@ -42,7 +42,7 @@ class Neuronio {
 	}
 
 	toString() {
-		return "w0 = " + w0 + " w1= " + w1 + " w2= " + w2;
+		return "w0 = " + this.w0 + " w1= " + this.w1 + " w2= " + this.w2;
 	}
 }
 

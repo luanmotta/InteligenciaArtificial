@@ -35,25 +35,21 @@ class MLP {
 
     var self = this;
     self.mlp.map((layer, layerIndex) => {
-      self.mlp.vk[layerIndex].push([]);
-      self.mlp.yk[layerIndex].push([]);
-      layer.map((neuronio, neuronioIndex) => {
+      self.vk.push([]);
+      self.yk.push([]);
+      layer.neuronios.map((neuronio, neuronioIndex) => {
         if (layerIndex === 0) {
-          self.mlp.vk[layerIndex][neuronioIndex] = 
-            mlp[layerIndex][neuronioIndex].calculaV(input[neuronioIndex]);
-          self.mlp.yk[layerIndex][neuronioIndex] = 
-            mlp[layerIndex][neuronioIndex].calculaY(input[neuronioIndex], Q);
+          self.vk[layerIndex].push(self.mlp[layerIndex].neuronios[neuronioIndex].calculaV(inputs[neuronioIndex]));
+          self.yk[layerIndex].push(self.mlp[layerIndex].neuronios[neuronioIndex].calculaY(inputs[neuronioIndex], self.Q));
         } else {
-          self.mlp.vk[layerIndex][neuronioIndex] = 
-            mlp[layerIndex][neuronioIndex].calculaV({
-              x1: self.mlp.yk[layerIndex - 1][neuronioIndex], 
-              x2: self.mlp.yk[layerIndex - 1][neuronioIndex],
-            });
-          self.mlp.yk[layerIndex][neuronioIndex] = 
-            mlp[layerIndex][neuronioIndex].calculaY({
-              x1: self.mlp.yk[layerIndex - 1][neuronioIndex], 
-              x2: self.mlp.yk[layerIndex - 1][neuronioIndex],
-            }, Q);
+          self.vk[layerIndex].push(self.mlp[layerIndex].neuronios[neuronioIndex].calculaV({
+              x1: self.yk[layerIndex - 1][neuronioIndex], 
+              x2: self.yk[layerIndex - 1][neuronioIndex],
+            }));
+          self.yk[layerIndex].push(self.mlp[layerIndex].neuronios[neuronioIndex].calculaY({
+              x1: self.yk[layerIndex - 1][neuronioIndex], 
+              x2: self.yk[layerIndex - 1][neuronioIndex],
+            }, self.Q));
         }
       });
     });

@@ -17,6 +17,7 @@ module.exports = function treinamento(wines, config) {
 
 		console.log("Epoca: " + epocas);
 		for (i = 0; i < winesToTraning; i++) {
+			inputs = [];
 
 			inputs.push({
 				'x1': wines[i]['fixed acidity'],

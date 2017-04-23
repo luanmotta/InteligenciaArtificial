@@ -2,10 +2,10 @@ const
     csv           = require('csvtojson'),
 	generalizacao = require('./generalizacao'),
 	treinamento   = require('./treinamento');
-    config        = require('./conf.json');
+    config        = require('./../conf.json');
 
 let
-    list = [],
+    wines = [],
 	fase;
 
 require('./../util.js');
@@ -19,9 +19,11 @@ class Main {
 		}
 		else if (process.argv[2] === 'generalizacao') {
 			fase = generalizacao;
-		} else {
+        }/* else {
 			throw new Error('É preciso especificar a fase como "treinamento" ou "generalizacao"');
-		}
+		}*/
+
+        fase = treinamento;
 
 
         csv({
@@ -30,12 +32,12 @@ class Main {
         .fromFile(__dirname + '/winequality-red.csv')
         .on('json', (jsonObj) => {
             //console.log(jsonObj[0]);
-            list.push(jsonObj);
+            wines.push(jsonObj);
         })
         .on('done', (error, data) => {
             if (error)
                 console.log(error);
-			fase(list, config);
+			fase(wines, config);
         });
     }
 }

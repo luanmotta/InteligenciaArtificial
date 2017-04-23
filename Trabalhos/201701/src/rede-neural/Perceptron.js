@@ -2,9 +2,8 @@ class Perceptron {
 	constructor() {
 		this.neuronio = new Neuronio();
 		this.x1[] = new int[4]; // 1a entrada
-		this.x1[] = new int[4]; // 1a entrada
 		this.x2[] = new int[4]; // 2a entrada
-		this.d[] = new int[4]; // saida desejada
+		this.d[]  = new int[4]; // saida desejada
 	}
 
 	treinamento() {

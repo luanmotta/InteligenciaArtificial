@@ -45,3 +45,5 @@ class Neuronio {
 		return "w0 = " + w0 + " w1= " + w1 + " w2= " + w2;
 	}
 }
+
+module.exports = Neuronio;

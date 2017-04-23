@@ -1,9 +1,7 @@
 {
     "parserOptions": {
         "ecmaVersion": 6,
-        "sourceType": "module",
-        "ecmaFeatures": {
-        }
+        "sourceType": "module"
     },
     "rules": {
         "semi": 2

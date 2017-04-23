@@ -35,8 +35,10 @@ class MLP {
     });
   }
 
-  propagacao(neuronios) {
-    
+  propagacao(wine) {
+    this.mlp.mergeAll().map((neuronio) => {
+      neuronio.w0 = this.setRandomWeight();
+    });
   }
 
 

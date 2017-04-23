@@ -35,7 +35,16 @@ class MLP {
           self.mlp.yk[layerIndex][neuronioIndex] = 
             mlp[layerIndex][neuronioIndex].calculaY(input[neuronioIndex], Q);
         } else {
-
+          self.mlp.vk[layerIndex][neuronioIndex] = 
+            mlp[layerIndex][neuronioIndex].calculaV({
+              x1: self.mlp.yk[layerIndex - 1][neuronioIndex], 
+              x2: self.mlp.yk[layerIndex - 1][neuronioIndex],
+            });
+          self.mlp.yk[layerIndex][neuronioIndex] = 
+            mlp[layerIndex][neuronioIndex].calculaY({
+              x1: self.mlp.yk[layerIndex - 1][neuronioIndex], 
+              x2: self.mlp.yk[layerIndex - 1][neuronioIndex],
+            }, Q);
         }
       });
     });

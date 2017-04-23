@@ -1,7 +1,7 @@
 class Neuronio {
 	// Neuronio para 2 entradas
 
-	constructor() {
+	constructor(w0, w1, w2) {
 		this.w0;
 		this.w1;
 		this.w2;

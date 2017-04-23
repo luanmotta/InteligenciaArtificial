@@ -1,7 +1,6 @@
 const MLP = require('./MLP.js');
 const config = require('./../config.json');
 
-
 module.exports = function treinamento(list) {
 	const winesToTraning = parseInt(list.length * 0.8);
 
@@ -10,8 +9,6 @@ module.exports = function treinamento(list) {
 	// Treinamento
 	let epocas = 0, i;
 	let y, erro, erroGeral;
-	let eta = 1; 
-	// eta e a constante (taxa) de aprendizagem
 
 	console.log("--- TREINAMENTO");
 	while (true) {

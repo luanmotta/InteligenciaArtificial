@@ -1,8 +1,23 @@
+const Neuronio = require('./Neuronio.js');
+
+function generateMLP(config) {
+  const mlp = [];
+  let i, j;
+  for ( i = 0; i < config.layers.length - 1 ; i++ ) {
+    mlp.push([]);
+    for ( j = 0; j < config.layers[i] ; j++) {
+      mlp[i].push(new Neuronio(config.weight[j]));
+    }
+  }
+  return mlp;
+}
+
 class MLP {
 
 	constructor(config) {
-		
-	}
+    this.mlp = generateMLP(config);
+    this.learningRate = config.learningRate; 
+  }
 
 	setRandomWeight() {
     const weigth = Math.random() * (1 - 0) + 0;
@@ -14,9 +29,9 @@ class MLP {
     return weigth;
   }
 
-  startWeights(mlp) {
-    return mlp.mergeAll().map((neuronio) => {
-      neuronio.w0 = setRandomWeight();
+  startWeights() {
+    this.mlp.mergeAll().map((neuronio) => {
+      neuronio.w0 = this.setRandomWeight();
     });
   }
 

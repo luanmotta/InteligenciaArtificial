@@ -7,6 +7,8 @@ let
     list = [],
 	fase;
 
+require('./../util.js');
+
 class Main {
     constructor() {
         console.log("node started");

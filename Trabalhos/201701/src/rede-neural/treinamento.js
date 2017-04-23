@@ -17,30 +17,10 @@ module.exports = function treinamento(wines, config) {
 
 		console.log("Epoca: " + epocas);
 		for (i = 0; i < winesToTraning; i++) {
-			inputs     = [];
-			keysNeeded = config.layers[0] * 2;
-			firstKey   = null;
 
-			if (keysNeeded - 1 > Object.keys(wines).length)
-				throw new Error('Você colocou mais neuronios de entradas do que campos no objeto vinho');
-
-			Object.keys(wines[i]).every(key => {
-				if (firstKey) {
-					inputs.push({
-						'x1': firstKey,
-						'x2': wines[i][key]
-					});
-					firstKey = null;
-				} else 
-					firstKey = wines[i][key];
-
-				if (keysNeeded === 1 && firstKey)
-					inputs.push({
-						'x1': firstKey,
-						'x2': 0
-					});
-
-				return --keysNeeded;
+			inputs.push({
+				'x1': wines[i]['fixed acidity'],
+				'x2': wines[i]['volatile acidity']
 			});
 
 		 	erroGeral = mlp.propagacao(inputs);

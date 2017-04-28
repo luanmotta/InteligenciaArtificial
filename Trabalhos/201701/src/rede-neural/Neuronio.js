@@ -19,12 +19,12 @@ class Neuronio {
 		return this.w2;
 	}
 
-	calculaV({x1, x2}) {
-		return this.w0 + this.w1 * this.x1 + this.w2 * this.x2;
+	calculaV(x1, x2) {
+		return this.w0 + this.w1 * x1 + this.w2 * x2;
 	}
 
-	calculaY({x1, x2}, Q) {
-		const v = this.calculaV(x1, x2);
+	calculaY(input, Q) {
+		const v = this.calculaV(input.x1, input.x2);
 
 		return (Q(v));
 	}

@@ -1,14 +1,13 @@
 const
     csv           = require('csvtojson'),
 	generalizacao = require('./generalizacao'),
-	treinamento   = require('./treinamento');
+	treinamento   = require('./treinamento'),
     config        = require('./../conf.json');
 
 let
-    wines = [],
+    wines   = [],
+    wineMax = {},
 	fase;
-
-require('./../util.js');
 
 class Main {
     constructor() {
@@ -30,14 +29,22 @@ class Main {
             'delimiter': ';'
         })
         .fromFile(__dirname + '/winequality-red.csv')
-        .on('json', (jsonObj) => {
-            //console.log(jsonObj[0]);
-            wines.push(jsonObj);
+        .on('json', (wine) => {
+            //console.log(wine);
+
+            Object.keys(wine).map(key => {
+                wineMax[key] = wineMax[key] || 0;
+
+                if (wine[key] > wineMax[key])
+                    wineMax[key] = wine[key];
+            });
+
+            wines.push(wine);
         })
         .on('done', (error, data) => {
             if (error)
                 console.log(error);
-			fase(wines, config);
+			fase(wines, wineMax, config);
         });
     }
 }

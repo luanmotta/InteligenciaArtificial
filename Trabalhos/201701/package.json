@@ -22,6 +22,7 @@
   },
   "homepage": "https://github.com/luanmotta/InteligenciaArtificial#readme",
   "dependencies": {
-    "csvtojson": "^1.1.4"
+    "csvtojson": "^1.1.4",
+    "synaptic": "^1.0.10"
   }
 }

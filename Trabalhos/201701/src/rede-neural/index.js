@@ -2,7 +2,8 @@ const
     csv           = require('csvtojson'),
 	generalizacao = require('./generalizacao'),
 	treinamento   = require('./treinamento'),
-    config        = require('./../conf.json');
+    config        = require('./../conf.json'),
+    fs            = require('fs');
 
 let
     wines   = [],
@@ -18,17 +19,22 @@ class Main {
 		}
 		else if (process.argv[2] === 'generalizacao') {
 			fase = generalizacao;
-        }/* else {
+        } else {
 			throw new Error('É preciso especificar a fase como "treinamento" ou "generalizacao"');
-		}*/
+		}
 
-        fase = treinamento;
+        let path;
 
+        if (!fs.existsSync(process.argv[3])) {
+            path = __dirname.split('\\');
+            path = path.splice(0, path.length - 2).join('\\') + '\\' + process.argv[3];
+        } else
+            path = process.argv[3];
 
         csv({
             'delimiter': ';'
         })
-        .fromFile(__dirname + '/winequality-red.csv')
+        .fromFile(path)
         .on('json', (wine) => {
             //console.log(wine);
 

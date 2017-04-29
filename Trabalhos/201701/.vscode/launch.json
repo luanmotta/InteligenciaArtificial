@@ -8,7 +8,11 @@
             "type": "node",
             "request": "launch",
             "name": "Launch Program",
-            "program": "${workspaceRoot}\\src\\rede-neural\\index.js"
+            "program": "${workspaceRoot}\\src\\rede-neural\\index.js",
+            "args": [
+                "treinamento",
+                "winequality-white.csv"
+            ]
         },
         {
             "type": "node",

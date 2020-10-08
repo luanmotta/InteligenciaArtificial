@@ -2,7 +2,7 @@ const Neuronio = require('./Neuronio.js');
 
 function getNeuronios(length, layerIndex, config) {
   const neuronios = [];
-  
+
   for (var i = 0; i < config.layers[i] ; i++)
       neuronios.push(new Neuronio(...config.weights[layerIndex][i]));
 
@@ -25,7 +25,7 @@ class MLP {
 
 	constructor(config, Q) {
     this.mlp = generateMLP(config);
-    this.learningRate = config.learningRate; 
+    this.learningRate = config.learningRate;
     this.Q = Q;
     this.vk = [];
     this.yk = [];
@@ -43,11 +43,11 @@ class MLP {
           self.yk[layerIndex].push(self.mlp[layerIndex].neuronios[neuronioIndex].calculaY(inputs[neuronioIndex], self.Q));
         } else {
           self.vk[layerIndex].push(self.mlp[layerIndex].neuronios[neuronioIndex].calculaV({
-              x1: self.yk[layerIndex - 1][neuronioIndex], 
+              x1: self.yk[layerIndex - 1][neuronioIndex],
               x2: self.yk[layerIndex - 1][neuronioIndex],
             }));
           self.yk[layerIndex].push(self.mlp[layerIndex].neuronios[neuronioIndex].calculaY({
-              x1: self.yk[layerIndex - 1][neuronioIndex], 
+              x1: self.yk[layerIndex - 1][neuronioIndex],
               x2: self.yk[layerIndex - 1][neuronioIndex],
             }, self.Q));
         }
@@ -56,7 +56,7 @@ class MLP {
   }
 
   retropropagacao() {
-    
+
   }
 
 //inputs [{x1:0.4, x2:0.3}, {x1:0.4, x2:0.3}]

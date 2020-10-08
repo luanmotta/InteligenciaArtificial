@@ -6,10 +6,10 @@ module.exports = function generalizacao(list) {
 	console.log("\n--- GENERALIZACAO");
 
 	for (i = winesToGeneralizate - 1 ; i > 0 ; i--) {
-				
+
 		console.log("Saida Gerada pela rede: "
 				+ neuronio.calculaY(entrada1, entrada2));
 
-	}	
+	}
 
 }
